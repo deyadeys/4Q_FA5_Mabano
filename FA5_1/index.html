@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getUserNumberInput() 
+        {
+            var numberval;
+            do {
+                var input = prompt("Kindly input a number (strictly): ");
+                numberval = parseInt(input);
+            } 
+            while (isNaN(numberval));
+            return numberval;
+        }
+
+        function decideForShape(numberval) 
+        {
+            document.write(`Number inputted: ${numberval}<br><br>`);
+
+            if (numberval % 2 !== 0) 
+            { // Shape:rectangle
+                var d = numberval;
+                while (d >= 1) 
+                {
+                    var a = 1;
+                    while (a <= numberval) 
+                    {
+                        document.write(d + " ");
+                        a++;
+                    }
+                    document.write("<br>");
+                    d--;
+                }
+            } else 
+            { // Shape:triangle
+                var d = numberval;
+                while (d >= 1) {
+                    var a = 1;
+                    while (a <= d) {
+                        document.write(d + " ");
+                        a++;
+                    }
+                    document.write("<br>");
+                    d--;
+                }
+            }
+        }
+        const numberval = getUserNumberInput();
+        decideForShape(numberval);
+    </script>
+</body>
+</html>
