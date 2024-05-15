@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<label id="t" for="h1">Contacts List</label><br>
+<input type="text" id="conInput" placeholder="Enter name">
+<input type="button" value="Add" onclick="addToContacts()">
+<input type="button" value="Remove" onclick="removeFromContacts()">
+<div id="listContacts" style="display: flex;"></div>
+
+<style>
+    body {
+        font-family: 'Times New Roman', Times, serif;
+        font-weight: bold;
+    }
+    input[type="button"] {
+        margin-top: 10px;
+        padding: 10px;
+        border-radius: 2vw;
+        background-color: aquamarine;
+    }
+    #t{
+        font-size: 1.9vw;
+        padding-left: 3vw;
+        color: rgb(138, 189, 231);
+    }
+</style>
+
+<script>
+    var con = [ ];
+
+function newList(){
+    var list = document.getElementById("listContacts"); 
+    list.innerHTML = con.map(contact => `<p> ${contact}  </p>  `).join(" ");
+}
+
+function addToContacts (){
+    var vinput = document.getElementById("conInput").value.trim();
+    if (con.length >= 7) {
+                con.shift();
+    } 
+    if (vinput !== "") {
+        con.push(vinput);
+        }
+            document.getElementById("conInput").value = "";
+            newList ();
+}
+function removeFromContacts() {
+        if (con.length > 0) {
+            con.pop();
+        }
+        document.getElementById("conInput").value = "";
+            newList ();  
+    }
+</script>
+</body>
+</html>
